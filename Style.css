@@ -1,0 +1,264 @@
+/* Bendri puslapio stiliai */
+body {
+    font-family: 'Arial', sans-serif;  /* Nustatomas bendras šriftas visam puslapiui */
+    font-size: 16px;  /* Bendras šrifto dydis visam puslapiui */
+    line-height: 1.5;  /* Geresniam teksto įskaitomumui */
+    color: #333;  /* Teksto spalva */
+    margin: 0;
+    padding: 0;
+}
+
+/* Antraštės stilius (h1, h2, h3) */
+h1 {
+    font-family: 'Georgia', serif; /* Gražus serif šriftas */
+    font-size: 36px;  /* Didesnis šrifto dydis antraštėms */
+    font-weight: bold;  /* Storis - paryškinta */
+    color: #df0303;  /* Tamsiai pilka spalva */
+}
+
+/* Bendras nuorodų stilius */
+a {
+    text-decoration: none; /* Pašalina pabraukimą */
+    color:rgb(113, 116, 110); /* Nustatome pradines nuorodos spalvas (mėlyna) */
+    font-weight: normal; /* Normalaus storio */
+    transition: color 0.3s ease; /* Sklandus spalvos pokytis */
+}
+
+/* Nuorodų hover efektas */
+a:hover {
+    color: #0056b3; /* Tamsesnė mėlyna spalva, kai pelė užveda virš */
+    text-decoration: underline; /* Pabraukimas, kai pelė užveda virš */
+}
+
+/* Nuorodų aktyvus (paspaustas) stilius */
+a:active {
+    color: #003366; /* Tamsi spalva, kai nuoroda paspaudžiama */
+}
+
+/* Mygtukų stilius */
+button {
+    background-color: #007bff; /* Mėlyna spalva kaip fonas */
+    color: white; /* Balta spalva tekstui */
+    border: 2px solid #007bff; /* Mėlyna kraštinė */
+    padding: 10px 20px; /* Tarpas aplink tekstą */
+    font-size: 16px; /* Teksto dydis */
+    border-radius: 5px; /* Kampų suapvalinimas */
+    cursor: pointer; /* Rodyklė keičiasi į ranką, kai pelė užveda virš */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Sklandus efektas */
+}
+
+/* Mygtukų hover efektas */
+button:hover {
+    background-color: #0056b3; /* Tamsesnė mėlyna spalva hover metu */
+    border-color: #0056b3; /* Tamsesnė mėlyna kraštinė */
+}
+
+/* Mygtukų aktyvus (paspaustas) stilius */
+button:active {
+    background-color: #003366; /* Tamsiai mėlyna, kai mygtukas paspaudžiamas */
+    border-color: #003366; /* Tamsiai mėlyna kraštinė */
+}
+
+/* Mygtuko išvaizda, kai jis yra išjungtas (disabled) */
+button:disabled {
+    background-color: #cccccc; /* Šviesiai pilka fonas */
+    border-color: #cccccc; /* Šviesiai pilka kraštinė */
+    color: #666666; /* Tamsiai pilka tekstas */
+    cursor: not-allowed; /* Rodyklė rodo, kad mygtukas negali būti paspaustas */
+}
+
+/* Bendri puslapio stiliai */
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    font-weight: normal;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for links */
+nav a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Section Styles */
+section {
+    padding: 40px;
+}
+
+/* Home Section */
+#home {
+    background-color: #f8f9fa;
+}
+
+#about {
+    background-color: #e9ecef;
+}
+
+/* Mygtukų ir nuorodų stilius */
+button {
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #007bff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover and active effects for buttons */
+button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+button:active {
+    background-color: #003366;
+    border-color: #003366;
+}
+
+/* Responsive Design - using media queries */
+
+/* For devices with width up to 768px (tablets and mobile devices) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Smaller font size */
+    }
+
+    /* Stilius naršymo meniu */
+    nav ul {
+        padding: 0;
+    }
+
+    nav ul li {
+        display: block; /* Sujungiame meniu elementus į vieną stulpelį */
+        margin: 10px 0;
+    }
+
+    nav a {
+        font-size: 16px; /* Sumažiname nuorodų šrifto dydį */
+    }
+
+    /* Atsakingos sekcijos su mažesniais atstumais */
+    section {
+        padding: 20px;
+    }
+
+    /* Sumažinkite šrifto dydį antraštėms */
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+
+/* For small mobile devices (phones) */
+@media (max-width: 480px) {
+    body {
+        font-size: 12px; /* Dar mažesnis šriftas */
+    }
+
+    nav ul li {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 24px; /* Sumažinkite h1 antraštės dydį */
+    }
+
+    h2 {
+        font-size: 20px; /* Sumažinkite h2 antraštės dydį */
+    }
+
+
+/* General styles for body */
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for both background and text color */
+}
+
+/* Light mode styles */
+:root {
+    --bg-color: #f8f9fa; /* Light background */
+    --text-color: #333;   /* Dark text color */
+    --link-color: #007bff; /* Link color */
+    --button-bg: #007bff; /* Button background */
+    --button-hover: #0056b3; /* Button hover */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    --bg-color: #121212; /* Dark background */
+    --text-color: #e9ecef; /* Light text color */
+    --link-color: #82c6ff; /* Light blue links */
+    --button-bg: #6200ea; /* Dark mode button color */
+    --button-hover: #3700b3; /* Dark mode button hover */
+}
+
+/* Apply the variables to the body */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);  /* Set text color using the CSS variable */
+}
+
+/* Apply the text color for paragraphs, headings, and other text elements */
+p, h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color); /* Ensure text elements inherit the text color */
+}
+
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--button-hover);
+    text-decoration: underline;
+}
+
+/* Button styles */
+button {
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05); /* Slight grow effect on hover */
+}
