@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="lt">
 
@@ -8,6 +9,27 @@
     <meta name="description" content="Tai elementarus HTML dokumentas su lietuviška koduote.">
     <title>puslapis</title>
     <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<!-- CSS stiliai -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    section {
+        margin-top: 40px;
+    }
+</style>
+
 </head>
 
 <body>
@@ -36,7 +58,49 @@
             <p>Paulius Simonavičius</p>
         </header>
     </section>
+    <section id="about">
+        <h2>Apie mus</h2>
+        <p>Mes esame inovatyvi ir kūrybinga komanda, padedanti klientams pasiekti jų tikslus. Mūsų misija – sukurti puikią vartotojo patirtį.</p>
+        <img src="images/about-photo.jpg" alt="Komandos nuotrauka" class="about-photo">
+    </section>
 
+    <section id="Services">
+        
+        <h2>Mūsų paslaugos</h2>
+        <ul>
+            <li>Web dizaino kūrimas</li>
+            <li>Programavimo sprendimai</li>
+            <li>SEO optimizacija</li>
+            <li>Skaitmeninė rinkodara</li>
+        </ul>
+
+    </section>
+    <section id="Portfolio"> 
+        <h2> PORTFOLIO</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="images/portfolio1.jpg" alt="Projekto pavyzdys 1">
+                <p>Projektas: Internetinės parduotuvės kūrimas</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="images/portfolio2.jpg" alt="Projekto pavyzdys 2">
+                <p>Projektas: Įmonės tinklalapis</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="images/portfolio3.jpg" alt="Projekto pavyzdys 3">
+                <p>Projektas: Asmeninis blogas</p>
+            </div>
+        </div>
+    </section>
+    <section id="contacts">
+        <h2>Susisiekite su mumis</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Vardas" required>
+            <input type="email" placeholder="El. paštas" required>
+            <textarea placeholder="Jūsų žinutė" rows="5" required></textarea>
+            <button type="submit">Siųsti</button>
+        </form>
+    </section>
     <!-- Dark/Light Mode Toggle -->
     <div class="darkmode-container">
         <button id="darkmode-button">
@@ -45,7 +109,7 @@
         </button>
     </div>
 
-    <script src="function.js"></script>
+    <script src="functions.js"></script>
 
     <footer class="site-footer">
         <div class="social-icons">
@@ -64,6 +128,57 @@
             <p>Sukūrė: Paulius Simonavičius</p>
         </div>
     </footer>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scrollToTop" title="Grįžti į pradžią">⬆️</button>
+
+    <section>
+        <h2>Standardinio nuokrypio formulė (MathML)</h2>
+        
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <msup>
+                <mrow>
+                    <mi>σ</mi>
+                </mrow>
+                <mrow>
+                    <mn>2</mn>
+                </mrow>
+            </msup>
+            <mo>=</mo>
+            <msqrt>
+                <mfrac linethickness="0">
+                    <mrow>
+                        <mn>1</mn>
+                    </mrow>
+                    <mrow>
+                        <mi>N</mi>
+                    </mrow>
+                </mfrac>
+                <mrow>
+                    <mo>∑</mo>
+                    <mrow>
+                    <mi>i</mi>
+                    </mrow>
+                    <mi>1</mi>
+                    <mo>→</mo>
+                    <mi>N</mi>
+                    <mi>(</mi>
+                    <mi>x</mi>
+                    <msub>
+                        <mi>i</mi>
+                    </msub>
+                    <mo>-</mo>
+                    <mi>μ</mi>
+                    <mi>)</mi>
+                    <msup>
+                        <mn>2</mn>
+                    </msup>
+                </mrow>
+            </msqrt>
+        </math>
+        <p>Ši formulė apskaičiuoja standartinį nuokrypį, kuris matuoja duomenų išsidėstymą aplink vidurkį.</p>
+    </section>
+
     
 </body>
 
