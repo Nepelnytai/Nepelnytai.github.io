@@ -45,15 +45,17 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
+/* Dark Mode Navigation */
+body.dark-mode nav {
+    background-color: #333; /* Dark nav background */
+}
 
-    nav ul li {
-        margin: 10px 0;
-    }
+body.dark-mode nav a {
+    color: #f5f5f5;
+}
+
+body.dark-mode nav a:hover {
+    color: #007bff;
 }
 
 /* Dark/Light Mode Toggle Button */
@@ -91,71 +93,173 @@ body.dark-mode #darkmode-button {
 body.dark-mode #darkmode-button:hover {
     background: #333;
 }
-/* Enhanced Navigation Bar Styles */
-nav {
-    background-color: #007bff; /* Blue background for navigation bar */
-    padding: 10px 20px;
-}
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav a {
-    text-decoration: none;
+/* Scroll-to-Top Button Styles */
+#scrollToTop {
+    display: none; /* Nematyti pradžioje */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
     color: white;
-    font-size: 16px;
-    font-weight: bold;
-    transition: color 0.3s ease, background-color 0.3s ease;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-nav a:hover {
-    color: #007bff;
-    background-color: white; /* Invert colors on hover */
-}
-/* Header Section */
-.site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #f8f9fa;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Visada viršuje */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .site-logo {
-    height: 50px;
+    width: 150px; /* Adjust the width */
+    height: 150px; /* Maintain aspect ratio */
+
+}
+site-logo {
+    max-width: 150px; /* Logo won't exceed 150px */
+    width: 20%; /* Adjust percentage as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
-.header-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+#scrollToTop:hover {
+    background-color: #0056b3;
 }
 
-.header-nav ul li {
-    margin-left: 20px;
+/* Dark Mode Scroll-to-Top */
+body.dark-mode #scrollToTop {
+    background-color: #444;
+    color: #f5f5f5;
 }
 
-.header-nav a {
-    text-decoration: none;
+body.dark-mode #scrollToTop:hover {
+    background-color: #333;
+}
+
+/* General Section Styling */
+section {
+    padding: 60px 20px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 20px;
     color: #333;
-    font-weight: bold;
-    font-size: 16px;
-    transition: color 0.3s ease;
 }
 
-.header-nav a:hover {
-    color: #007bff;
+section p {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Dark Mode Section */
+body.dark-mode section {
+    background-color: #1e1e1e; /* Darker section background */
+    color: #f5f5f5;
+}
+
+body.dark-mode section h2,
+body.dark-mode section p {
+    color: #f5f5f5; /* Ensure headers and paragraphs are white */
+}
+
+
+
+/* About Section */
+.about-photo {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+/* Services Section */
+#services ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+#services ul li {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+/* Portfolio Section */
+.portfolio-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.portfolio-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    width: 250px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.portfolio-item img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+/* Dark Mode Portfolio */
+body.dark-mode .portfolio-item {
+    background-color: #2a2a2a;
+    color: #ddd;
+    border-color: #444;
+}
+
+/* Contact Section */
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-form button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Dark Mode Contact Section */
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea,
+body.dark-mode .contact-form button {
+    background-color: #333;
+    color: #f5f5f5;
+    border: 1px solid #444;
+}
+
+body.dark-mode .contact-form button:hover {
+    background-color: #555;
 }
