@@ -1,14 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="lt">
 
 <head>
+
+    <script>
+        function atnaujintiLaikrodi() {
+            const dabar = new Date();
+            const valandos = String(dabar.getHours()).padStart(2, '0');
+            const minutes = String(dabar.getMinutes()).padStart(2, '0');
+            const sekundes = String(dabar.getSeconds()).padStart(2, '0');
+            document.getElementById('laikrodis').textContent = `${valandos}:${minutes}:${sekundes}`;
+        }
+
+        setInterval(atnaujintiLaikrodi, 1000);
+        document.addEventListener('DOMContentLoaded', atnaujintiLaikrodi);
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Paulius Simonavičius">
     <meta name="description" content="Tai elementarus HTML dokumentas su lietuviška koduote.">
     <title>puslapis</title>
     <link rel="stylesheet" href="style.css">
+
+    <section id="laikrodis-section" style="text-align: center; margin-top: 20px;">
+        <h2>Dabartinis Laikas</h2>
+        <p id="laikrodis" style="font-size: 24px; font-weight: bold;"></p>
+    </section>
 
     <script type="text/javascript" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -28,19 +46,165 @@
     section {
         margin-top: 40px;
     }
+
+    .header-nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        gap: 15px;
+    }
+
+    .header-nav a {
+        text-decoration: none;
+        color: black;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .header-nav a svg {
+        width: 16px;
+        height: 16px;
+    }
 </style>
+
 
 </head>
 
 <body>
 
+    <section id="visitor-contact">
+        <h2>Kontaktų Forma</h2>
+        <form id="visitor-form">
+            <label for="vardas">Vardas:</label>
+            <input type="text" id="vardas" name="vardas" required><br>
+
+            <label for="pavarde">Pavardė:</label>
+            <input type="text" id="pavarde" name="pavarde" required><br>
+
+            <label for="elpastas">El. paštas:</label>
+            <input type="email" id="elpastas" name="elpastas" required><br>
+
+            <label for="telefonas">Telefonas:</label>
+            <input type="tel" id="telefonas" name="telefonas" required><br>
+
+            <label for="adresas">Adresas:</label>
+            <input type="text" id="adresas" name="adresas" required><br>
+
+            <h3>Įvertinimai (1-10)</h3>
+            <label for="user-experience">Jūsų patirtis su svetaine:</label>
+            <input type="number" id="user-experience" name="user-experience" min="1" max="10" required><br>
+
+            <label for="design-feedback">Dizaino kokybė:</label>
+            <input type="number" id="design-feedback" name="design-feedback" min="1" max="10" required><br>
+
+            <label for="ease-of-use">Naudojimosi paprastumas:</label>
+            <input type="number" id="ease-of-use" name="ease-of-use" min="1" max="10" required><br>
+
+            <label for="content-quality">Turinio kokybė:</label>
+            <input type="number" id="content-quality" name="content-quality" min="1" max="10" required><br>
+
+            <label for="support-feedback">Pagalbos kokybė:</label>
+            <input type="number" id="support-feedback" name="support-feedback" min="1" max="10" required><br>
+
+            <button type="button" id="submit-button">Išsaugoti</button>
+        </form>
+
+        <div id="results" style="margin-top: 20px;">
+            <h3>Rezultatai</h3>
+            <div id="contact-output"></div>
+            <p id="average-output"></p>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('submit-button').addEventListener('click', function() {
+            const vardas = document.getElementById('vardas').value;
+            const pavarde = document.getElementById('pavarde').value;
+            const elpastas = document.getElementById('elpastas').value;
+            const telefonas = document.getElementById('telefonas').value;
+            const adresas = document.getElementById('adresas').value;
+
+            const userExperience = Number(document.getElementById('user-experience').value);
+            const designFeedback = Number(document.getElementById('design-feedback').value);
+            const easeOfUse = Number(document.getElementById('ease-of-use').value);
+            const contentQuality = Number(document.getElementById('content-quality').value);
+            const supportFeedback = Number(document.getElementById('support-feedback').value);
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phoneRegex = /^\+?[0-9]{7,14}$/;
+
+            if (!emailRegex.test(elpastas)) {
+                alert('Įveskite teisingą el. pašto adresą.');
+                return;
+            }
+
+            if (!phoneRegex.test(telefonas)) {
+                alert('Įveskite teisingą telefono numerį.');
+                return;
+            }
+
+            if (adresas.trim() === '') {
+                alert('Adresas negali būti tuščias.');
+                return;
+            }
+
+            const averageRating = ((userExperience + designFeedback + easeOfUse + contentQuality + supportFeedback) / 5).toFixed(2);
+
+            const contactData = {
+                vardas,
+                pavarde,
+                elpastas,
+                telefonas,
+                adresas,
+                ivertinimai: {
+                    userExperience,
+                    designFeedback,
+                    easeOfUse,
+                    contentQuality,
+                    supportFeedback
+                }
+            };
+
+            // Output contact information
+            const contactOutput = document.getElementById('contact-output');
+            contactOutput.innerHTML = `
+                <p><strong>Vardas:</strong> ${vardas}</p>
+                <p><strong>Pavardė:</strong> ${pavarde}</p>
+                <p><strong>El. paštas:</strong> ${elpastas}</p>
+                <p><strong>Telefonas:</strong> ${telefonas}</p>
+                <p><strong>Adresas:</strong> ${adresas}</p>
+            `;
+
+            // Output average rating with color
+            const averageOutput = document.getElementById('average-output');
+            averageOutput.textContent = `${vardas} ${pavarde} (${elpastas}): Vidutinis įvertinimas - ${averageRating}`;
+
+            if (averageRating < 4) {
+                averageOutput.style.color = 'red';
+            } else if (averageRating < 7) {
+                averageOutput.style.color = 'orange';
+            } else {
+                averageOutput.style.color = 'green';
+            }
+
+            console.log(contactData);
+        });
+    </script>
+
+   
     <header class="site-header">
         <div class="logo-container">
             <img src="images/logo.png" alt="Puslapio Logo" class="site-logo">
         </div>
         <nav class="header-nav">
             <ul>
-                <li><a href="#home">Namai</a></li>
+                <li><a href="#home">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9.8l9-7.6 9 7.6v10.4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Namai</a></li>
                 <li><a href="#about">Apie</a></li>
                 <li><a href="#services">Paslaugos</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
@@ -48,8 +212,6 @@
             </ul>
         </nav>
     </header>
-    <!-- Navigation Bar -->
-    
 
     <!-- Home Section -->
     <section id="home">
@@ -58,6 +220,7 @@
             <p>Paulius Simonavičius</p>
         </header>
     </section>
+
     <section id="about">
         <h2>Apie mus</h2>
         <p>Mes esame inovatyvi ir kūrybinga komanda, padedanti klientams pasiekti jų tikslus. Mūsų misija – sukurti puikią vartotojo patirtį.</p>
@@ -65,7 +228,6 @@
     </section>
 
     <section id="Services">
-        
         <h2>Mūsų paslaugos</h2>
         <ul>
             <li>Web dizaino kūrimas</li>
@@ -73,10 +235,10 @@
             <li>SEO optimizacija</li>
             <li>Skaitmeninė rinkodara</li>
         </ul>
-
     </section>
+
     <section id="Portfolio"> 
-        <h2> PORTFOLIO</h2>
+        <h2>PORTFOLIO</h2>
         <div class="portfolio-grid">
             <div class="portfolio-item">
                 <img src="images/portfolio1.jpg" alt="Projekto pavyzdys 1">
@@ -92,6 +254,7 @@
             </div>
         </div>
     </section>
+
     <section id="contacts">
         <h2>Susisiekite su mumis</h2>
         <form class="contact-form">
@@ -101,7 +264,7 @@
             <button type="submit">Siųsti</button>
         </form>
     </section>
-    <!-- Dark/Light Mode Toggle -->
+
     <div class="darkmode-container">
         <button id="darkmode-button">
             <span id="mode-icon">🌙</span> 
@@ -129,7 +292,6 @@
         </div>
     </footer>
 
-    <!-- Scroll-to-Top Button -->
     <button id="scrollToTop" title="Grįžti į pradžią">⬆️</button>
 
     <section>
@@ -179,7 +341,6 @@
         <p>Ši formulė apskaičiuoja standartinį nuokrypį, kuris matuoja duomenų išsidėstymą aplink vidurkį.</p>
     </section>
 
-    
 </body>
 
 </html>
